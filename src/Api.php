@@ -75,7 +75,7 @@ class Api
     }
 
     /**
-     * @param int $CategoryID
+     * @param integer $CategoryID
      * @return \SimpleXMLElement
      */
     public function getMakeList($CategoryID)
@@ -125,5 +125,20 @@ class Api
     public function TypeID2Recommendation($Type)
     {
         return $this->makeRequest(['Type' => $Type]);
+    }
+
+    /**
+     * @param string $CountryISO3
+     * @param string $Licenseplate
+     * @param integer $CategoryID
+     * @return \SimpleXMLElement
+     */
+    public function Licenseplate2TypeID($CountryISO3, $Licenseplate, $CategoryID)
+    {
+        return $this->makeRequest([
+            'CountryISO3' => $CountryISO3,
+            'Licenseplate' => $Licenseplate,
+            'CategoryID' => $CategoryID,
+        ]);
     }
 }
